@@ -116,16 +116,16 @@ public class LCS {
         int maxLength = 0;
         int lengthX = x.length();
         int lengthY = y.length();
-        String Long;
+        String longest;
         if (lengthX > lengthY) {
             allSubStr = allSubStrings(y);
-            Long = x;
+            longest = x;
         } else {
             allSubStr = allSubStrings(x);
-            Long = y;
+            longest = y;
         }
         for (String s : allSubStr) {
-            String common = checkCommon(s, Long);
+            String common = checkCommon(s, longest);
             if (common.length() > maxLength)
                 maxLength = common.length();
             if (!common.equals(""))
