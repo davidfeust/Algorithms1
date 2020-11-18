@@ -244,7 +244,6 @@ public class NumbersGame {
             else if (_start % 2 != 0) str = "s";
             else str = "e";
             TimeUnit.SECONDS.sleep(1);
-//            int compChoo = startOrEnd(str);
             if (_start == _end) comp += _arr[_start];
             else {
                 int compChoo = startOrEnd(str);
