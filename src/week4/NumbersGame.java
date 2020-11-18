@@ -8,11 +8,10 @@ import java.util.concurrent.TimeUnit;
 public class NumbersGame {
 
     private static final int _n = 10; // needs to be even
-    private static int[] _arr;
-    private static int _start = 0, _end = _n - 1;
     static Random _rand = new Random();
     static Heap h = new Heap(_n);
-
+    private static int[] _arr;
+    private static int _start = 0, _end = _n - 1;
 
     private static void init() {
 //        _arr = new int[]{5, 20, 10, 1};
@@ -204,9 +203,54 @@ public class NumbersGame {
             comp += compChoo;
             System.out.println("Computer selected: " + compChoo);
             printArrRange(_start, _end);
+            even = sum(true, _start, _end + 1);
+            odd = sum(false, _start, _end + 1);
+            System.out.println("Hint: even places = " + even + ", odd places = " + odd);
             System.out.println("Player (" + player + "):\n choose s \\ e:\t" + _arr[_start] + " \\ " + _arr[_end]);
             if (_start == _end) player += _arr[_start];
             else player += playerChoose();
+            System.out.println();
+        }
+        System.out.println("The winner is the " + (comp > player ? "Computer!" : "Player!"));
+        System.out.println("Computer get " + comp + ", Player get " + player);
+    }
+
+    /**
+     * player vs computer
+     * player first
+     * uses the adaptive strategy
+     */
+    public static void game5() throws InterruptedException {
+        init();
+        int player = 0, comp = 0;
+        while (_start != _end) {
+            int even = sum(true, _start, _end + 1), odd = sum(false, _start, _end + 1);
+            boolean e = even >= odd;
+            System.out.println("Hint: even places = " + even + ", odd places = " + odd);
+            printArrRange(_start, _end);
+            System.out.println("Player (" + player + "):\n choose s \\ e:\t" + _arr[_start] + " \\ " + _arr[_end]);
+            if (_start == _end) player += _arr[_start];
+            else player += playerChoose();
+
+            even = sum(true, _start, _end + 1);
+            odd = sum(false, _start, _end + 1);
+            e = even >= odd;
+            System.out.println("Hint: even places = " + even + ", odd places = " + odd);
+            printArrRange(_start, _end);
+            System.out.println("Computer (" + comp + "):\n choose s \\ e:\t" + _arr[_start] + " \\ " + _arr[_end]);
+            String str;
+            if (e && _start % 2 == 0) str = "s";
+            else if (e) str = "e";
+            else if (_start % 2 != 0) str = "s";
+            else str = "e";
+            TimeUnit.SECONDS.sleep(1);
+//            int compChoo = startOrEnd(str);
+            if (_start == _end) comp += _arr[_start];
+            else {
+                int compChoo = startOrEnd(str);
+                comp += compChoo;
+                System.out.println("Computer selected: " + compChoo);
+            }
             System.out.println();
         }
         System.out.println("The winner is the " + (comp > player ? "Computer!" : "Player!"));
@@ -229,7 +273,8 @@ public class NumbersGame {
 //        game1();
 //        game2();
 //        game3();
-        game4();
+//        game4();
+        game5();
 //        init();
 //        System.out.println(h);
     }
