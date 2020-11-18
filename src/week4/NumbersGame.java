@@ -32,15 +32,15 @@ public class NumbersGame {
     }
 
     private static void printArrRange(int start, int end) {
-        String s = "[";
+        StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < _n; i++) {
             if (i >= start && i <= end)
-                s += _arr[i] + (i == end ? "" : "\t\t");
-            else s += "\t\t";
+                s.append(_arr[i]).append(i == end ? "" : "\t\t");
+            else s.append("\t\t");
         }
-        s += "]\n[";
+        s.append("]\n[");
         for (int i = 0; i < _n; i++) {
-            s += i + (i != _n - 1 ? "\t\t" : "]");
+            s.append(i).append(i != _n - 1 ? "\t\t" : "]");
         }
         System.out.println(s);
     }
@@ -108,7 +108,6 @@ public class NumbersGame {
     /**
      * player vs computer
      * computer first
-     * TODO: player needs to be the first
      */
     public static void game2() throws InterruptedException {
         init();
