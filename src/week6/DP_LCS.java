@@ -23,6 +23,12 @@ public class DP_LCS {
 //        initArr();
 //    }
 
+    /**
+     * set 2 strings to execute the LCS algo on them
+     *
+     * @param x
+     * @param y
+     */
     public void setStrings(String x, String y) {
         _x = x;
         _y = y;
@@ -32,6 +38,9 @@ public class DP_LCS {
         initArr();
     }
 
+    /**
+     * init the matrix for the algo inner used
+     */
     private void initArr() {
         int counter = 0;
         for (int i = 0; i < _lcs[0].length; i++) {
@@ -51,10 +60,14 @@ public class DP_LCS {
         }
     }
 
-        public int length() {
+    public int length() {
         return _lcs[_lenY - 1][_lenX - 1];
     }
 
+    /**
+     * get one of the LCS strings
+     * @return
+     */
     public String getOneOf() {
         int i = _lenY - 1, j = _lenX - 1;
         String res = "";
@@ -70,6 +83,10 @@ public class DP_LCS {
         return res;
     }
 
+    /**
+     * get all of the LCS possible strings
+     * @return
+     */
     public ArrayList<String> getAllOf() {
         int i = _lenY - 1, j = _lenX - 1;
         _allLcs = new ArrayList<>();

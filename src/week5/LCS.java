@@ -63,6 +63,11 @@ public class LCS {
         else return b;
     }
 
+    /**
+     * add 1 to binary number
+     * the number are represent in array that every cell contains 1 or 0
+     * @param bin
+     */
     public static void plus1(int[] bin) {
         int i = bin.length - 1;
         while (i >= 0 && bin[i] == 1) {
@@ -71,6 +76,11 @@ public class LCS {
         if (i >= 0) bin[i] = 1;
     }
 
+    /**
+     * return all the sub string of the giving string s
+     * @param s
+     * @return
+     */
     public static String[] allSubStrings(String s) {
         int n = s.length();
         int count = (int) (Math.pow(2, n) - 1);
