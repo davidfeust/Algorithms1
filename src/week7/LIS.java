@@ -129,13 +129,13 @@ public class LIS {
         return ans;
     }
 
-    /*
+
     public static int[] LIS_with_LCS(int[] arr) {
         int[] t = Arrays.copyOf(arr, arr.length);
         Arrays.sort(t);
         return LCS(t, arr);
     }
-    */
+
 
     public static ArrayList<int[]> allLIS(int[] arr) {
         ArrayList<int[]> ans = new ArrayList<>();
@@ -146,4 +146,41 @@ public class LIS {
         }
         return ans;
     }
+
+    public static int[] LCS(int[] x, int[] y) {
+        int i = y.length - 1, j = x.length - 1;
+        int[] res = new int[Math.max(x.length, y.length)];
+        int k = res.length - 1;
+        while (i >= 0 && j >= 0) {
+            if (x[j] == y[i]) {
+                res[k--] = y[i];
+                i--;
+                j--;
+            } else {
+                i--;
+            }
+        }
+        return Arrays.copyOfRange(res, k + 1, res.length);
+    }
+
+/*    private void initArr(int[] x, int[] y) {
+        int[][] lcs = new int[x.length][y.length];
+        int counter = 0;
+        for (int i = 0; i < lcs[0].length; i++) {
+            if (x[i] == y[0]) counter = 1;
+            lcs[0][i] = counter;
+        }
+        counter = 0;
+        for (int i = 0; i < lcs.length; i++) {
+            if (x[0] == y[i]) counter = 1;
+            lcs[i][0] = counter;
+        }
+        for (int i = 1; i < y.length; i++) {
+            for (int j = 1; j < x.length; j++) {
+                if (x[j] != y[i]) lcs[i][j] = max(lcs[i - 1][j], lcs[i][j - 1]);
+                else lcs[i][j] = lcs[i - 1][j - 1] + 1;
+            }
+        }
+    }*/
+
 }

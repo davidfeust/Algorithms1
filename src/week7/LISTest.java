@@ -76,4 +76,13 @@ class LISTest {
             System.out.println(Arrays.toString(i));
         }
     }
+
+    @Test
+    void LIS_with_LCS() {
+        int[] arr1 = arrays_creator(1);
+        System.out.println(Arrays.toString(arr1));
+        int[] res = LIS.LIS_with_LCS(arr1);
+        System.out.println(Arrays.toString(res));
+
+    }
 }
