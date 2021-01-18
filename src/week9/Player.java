@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Player {
 
-    private final int prob;
-    private final char name;
-    private boolean isAlive;
+    final int prob;
+    final char name;
+    boolean isAlive;
 
     public Player(int prob, char c) {
         this.prob = prob;

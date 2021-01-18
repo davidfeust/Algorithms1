@@ -6,7 +6,7 @@ package week9;
  */
 public class Grid {
 
-    private Node[][] _mat;
+    public Node[][] _mat;
     private int _n, _m;
 
     /**
