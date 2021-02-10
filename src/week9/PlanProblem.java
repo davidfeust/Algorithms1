@@ -2,11 +2,11 @@ package week9;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test for Plane Problem
- * Uses {@link Grid} ad data structure.
+ * Uses Grid ad data structure.
  */
 class PlanProblem {
 

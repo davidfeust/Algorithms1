@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Triathlon {
 
-    private Player[] players;
-    private Player A, B, C;
-    private Random ran;
+    Player[] players;
+    Player A, B, C;
+    Random ran;
 
     /**
      * init new game
