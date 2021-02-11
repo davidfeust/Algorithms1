@@ -36,7 +36,7 @@ public class LIS {
             }
             lis[index] = mat[index][index] = arr[i];
         }
-//        for (int[] i : mat) System.out.println(Arrays.toString(i));
+//        for (int[] i : mat) System.out.print(i == null ? "" : Arrays.toString(i) + "\n");
         return mat[k - 1];
     }
 
@@ -46,8 +46,9 @@ public class LIS {
         int[] a1 = {1, 11, 2, 10, 4, 5, 2, 1};
         int[] a2 = {5, 2, 9, 7, 8, 5, 3, 2, 1, 10, 6};
         int[] a3 = {9, 10, 8, 0, 1, 4, 3, 7};
-        System.out.println("lis(a1) = " + Arrays.toString(lis(a1)));
+//        System.out.println("lis(a1) = " + Arrays.toString(lis(a1)));
         System.out.println("lis(a2) = " + Arrays.toString(lis(a2)));
-        System.out.println("lis(a3) = " + Arrays.toString(lis(a3))); // 0,1,3,7,9,10
+//        System.out.println("lis(a3) = " + Arrays.toString(lis(a3))); // 0,1,3,7,9,10
+//        System.out.println(lisSize(new int[]{0, 5, 8, 3, 11, 7, 9, 61}));
     }
 }

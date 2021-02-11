@@ -32,10 +32,27 @@ public class Fib {
         return new int[][]{{x, y}, {z, w}};
     }
 
+    public static int steps(int n) {
+        int[] h = new int[n + 1];
+        h[0] = 0;
+        h[1] = 1;
+        h[2] = 2;
+        for (int i = 3; i < n + 1; i++) {
+            h[i] = h[i - 1] + h[i - 2];
+        }
+//        System.out.println(Arrays.toString(h));
+        return h[n];
+    }
+
+
     public static void main(String[] args) {
         for (int i = 1; i < 47; i++) {
-            System.out.printf("fib(%d) = %d\n", i, fib(i));
+//            System.out.printf("fib(%d) = %d\n", i, fib(i));
+        }
+        for (int i = 2; i < 46; i++) {
+            System.out.println("steps(" + i + ") = " + steps(i));
         }
     }
+
 
 }

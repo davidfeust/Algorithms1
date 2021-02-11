@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class LISAsg {
 
     private int[] arr, help;
+    private int[][] mat;
     private int teta, n;
 
     public LISAsg(int[] arr, int teta) {
@@ -30,7 +31,22 @@ public class LISAsg {
     }
 
     public int numOfLIS() {
-        return 0;
+        help = new int[n];
+        mat = new int[n][n];
+        help[0] = mat[0][0] = arr[0];
+        int res = 1;
+        for (int i = 1; i < n; i++) {
+            int index = Arrays.binarySearch(arr, 0, res, arr[i]);
+            if (index < 0) {
+                index = -index - 1;
+            }
+            if (index == res) {
+                res++;
+            }
+            help[index] = arr[i];
+        }
+        System.out.println(Arrays.toString(help));
+        return res;
     }
 
     public int[][] allLIS() {
