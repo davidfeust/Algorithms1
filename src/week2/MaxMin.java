@@ -1,7 +1,5 @@
 package week2;
 
-import java.util.Arrays;
-
 public class MaxMin {
 
     private final int N = 1000;
