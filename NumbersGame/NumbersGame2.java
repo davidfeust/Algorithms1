@@ -1,5 +1,3 @@
-package TestPractice;
-
 public class NumbersGame2 {
 
     public static int gameNumber(int[] a) {
