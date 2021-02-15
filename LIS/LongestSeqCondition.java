@@ -49,6 +49,7 @@ public class LongestSeqCondition {
         Condition sqrtPow = (x, y) -> x * x == y || y * y == x;
         Condition small1 = (x, y) -> Math.abs(x - y) <= 1;
         Condition odd = (x, y) -> x % 2 == 1 && y % 2 == 1;
+        Condition abs = (x, y) -> Math.abs(x - y) == 4;
         System.out.println("longestSeq(a, lis) = " + longestSeq(a, lis));
         System.out.println("longestSeq(a, sqrtPow) = " + longestSeq(a, sqrtPow));
         System.out.println("longestSeq(a, small1) = " + longestSeq(a, small1));

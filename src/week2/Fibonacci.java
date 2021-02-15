@@ -1,7 +1,6 @@
 package week2;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.math.BigInteger;
 
 public class Fibonacci {
 
@@ -20,17 +19,30 @@ public class Fibonacci {
         return res[n];
     }
 
+    public static BigInteger inductionBig(int n) {
+        BigInteger[] res = new BigInteger[n + 1];
+        res[0] = res[1] =new BigInteger("1");
+        for (int i = 2; i <= n; i++) {
+            res[i] = res[i - 1].add(res[i - 2]);
+        }
+        return res[n];
+    }
+
     public static void main(String[] args) {
         final int num = 40;
-        long start1 = new Date().getTime();
-        System.out.println(induction(num));
-        long end1 = new Date().getTime();
-        System.out.println("Calculation time of the " + num + "rd Fibonacci number by induction is: " + (end1 - start1) / 1000.0);
+//        long start1 = new Date().getTime();
+//        System.out.println(induction(num));
+//        long end1 = new Date().getTime();
+//        System.out.println("Calculation time of the " + num + "rd Fibonacci number by induction is: " + (end1 - start1) / 1000.0);
+//
+//        long start2 = new Date().getTime();
+//        System.out.println(recursion(num));
+//        long end2 = new Date().getTime();
+//        System.out.println("Calculation time of the " + num + "rd Fibonacci number by recursion is: " + (end2 - start2) / 1000.0);
 
-        long start2 = new Date().getTime();
-        System.out.println(recursion(num));
-        long end2 = new Date().getTime();
-        System.out.println("Calculation time of the " + num + "rd Fibonacci number by recursion is: " + (end2 - start2) / 1000.0);
 
+        for (int i = 1; i < 50; i++) {
+            System.out.println(inductionBig(i).toString().length() + " inductionBig(" + i + ") = " + inductionBig(i));
+        }
     }
 }

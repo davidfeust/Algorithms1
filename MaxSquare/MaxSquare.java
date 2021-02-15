@@ -1,5 +1,3 @@
-package TestPractice;
-
 public class MaxSquare {
 
     public static int maxSquare(int[][] mat) {
