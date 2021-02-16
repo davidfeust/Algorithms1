@@ -55,8 +55,9 @@ public class Q1 {
     }
 
     public static int lcsIncrease(int[] X, int[] Y) {
-        int n = X.length, m = Y.length;
-        return lis(lcs(X, Y));
+        int[] lcs = lcs(X, Y);
+        if (lcs.length == 0) return 0;
+        return lis(lcs);
     }
 
     private static int binarySearch(int[] a, int start, int end, int key) {
