@@ -1,4 +1,4 @@
-
+import java.util.HashMap;
 
 interface Condition {
     public boolean condition(int x, int y);
@@ -6,23 +6,22 @@ interface Condition {
 
 public class LongestSeqCondition {
 
-//    public static int longestSeqN(int[] a, Condition c) {
-//        int n = a.length;
-//        HashMap<Integer, Integer> h = new HashMap<>();
-//        int ans = 1;
-//        for (int i = 1; i < n; i++) {
-//            int max = 1;
-//            for (int j = 0; j < i; j++) {
-//                if (c.condition(a[j], a[i])) {
-//                    max = Math.max(max, h[j] + 1);
-//                }
-//            }
-//            h[i] = max;
-//            ans = Math.max(ans, max);
-//        }
-////        System.out.println(Arrays.toString(h));
-//        return ans;
-//    }
+    public static int longestSeqSqrtPowInNTimes(int[] a) {
+        int n = a.length;
+        HashMap<Integer, Integer> h = new HashMap<>();
+        int ans = 0;
+        for (int i = 1; i < n; i++) {
+            int max = 1;
+            Integer x = h.get(a[i] * a[i]);
+            Integer y = h.get((int) Math.sqrt(a[i]));
+            if (x != null) max = Math.max(max, x + 1);
+            if (y != null && (int) Math.sqrt(a[i]) == Math.sqrt(a[i])) max = Math.max(max, y + 1);
+            h.put(a[i], max);
+            ans = Math.max(ans, max);
+        }
+//        System.out.println(Arrays.toString(h));
+        return ans;
+    }
 
     public static int longestSeq(int[] a, Condition c) {
         int n = a.length;
@@ -54,7 +53,7 @@ public class LongestSeqCondition {
         System.out.println("longestSeq(a, sqrtPow) = " + longestSeq(a, sqrtPow));
         System.out.println("longestSeq(a, small1) = " + longestSeq(a, small1));
         System.out.println("longestSeq(a, small1) = " + longestSeq(a, odd));
-
+        System.out.println("longestSeqSqrtPowInNTimes(a) = " + longestSeqSqrtPowInNTimes(a));
 
     }
 }
