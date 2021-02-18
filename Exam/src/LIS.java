@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 
 public class LIS {
 
@@ -74,7 +74,7 @@ public class LIS {
             for (int j = 0; j < index; j++) mat[index][j] = mat[index - 1][j];
             mat[index][index] = help[index] = arr[i];
             if (index + 1 == length) ans[k++] = mat[index];
-//            System.out.println("mat[index] = mat[" + index + "] =" + Arrays.toString(mat[index]));
+            System.out.println("mat[index] = mat[" + index + "] =" + Arrays.toString(mat[index]));
         }
         return ans;
     }

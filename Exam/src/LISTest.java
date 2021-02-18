@@ -52,6 +52,24 @@ class LISTest {
     }
 
     @Test
+    public void basicTest() {
+        int[] arr = {2, 4, 90, -3, -2, -1, -10, -9, -8};
+        LIS lis = new LIS(arr, 5);
+//        assertEquals(3, lis.lengthLIS());
+//        assertEquals(3, lis.numOfLIS());
+        int[][] excepted = {{2, 4, 90}, {-3, -2, -1}, {-10, -9, -8}};
+//        assertArrayEquals(excepted, lis.allLIS());
+
+        arr = new int[]{2, -3, 4, 90, -2, -1, -10, -9, -8};
+        lis = new LIS(arr, 5);
+//        assertEquals(3, lis.lengthLIS());
+        excepted = new int[][]{{-3, 4, 90}, {2, 4, 90}, {-3, -2, -1}, {-10, -9, -8}};
+        System.out.println("excepted = " + Arrays.deepToString(lis.allLIS()));
+//        assertArrayEquals(excepted, lis.allLIS());
+//        assertEquals(4, lis.numOfLIS());
+    }
+
+    @Test
     void numOfLIS() {
         int n = 100000;
         Random ran = new Random(3);
@@ -80,12 +98,13 @@ class LISTest {
 
     @Test
     public void testName() {
-        Random ran = new Random(2);
-        int[] a = ran.ints(10).map(x -> {
-            x =  x < 0 ? x / 100000 * -1 : x / 100000;
-            return x;// / 100000;
-        }).toArray();
-        System.out.println("a = " + Arrays.toString(a));
+        int[] arr5 = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 3};
+        LIS lis = new LIS(arr5, 4);
+        System.out.println("lis.lengthLIS() = " + lis.lengthLIS());
+        System.out.println("lis.numOfLIS() = " + lis.numOfLIS());
+        int[][] ints = lis.allLIS();
+        System.out.println("ints = " + Arrays.deepToString(ints));
+
     }
 
     private int[] createArr() {
