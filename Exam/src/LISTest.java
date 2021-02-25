@@ -62,11 +62,13 @@ class LISTest {
 
         arr = new int[]{2, -3, 4, 90, -2, -1, -10, -9, -8};
         lis = new LIS(arr, 5);
-//        assertEquals(3, lis.lengthLIS());
+        System.out.println("lis.numOfLIS() = " + lis.numOfLIS());
+        assertEquals(3, lis.lengthLIS());
         excepted = new int[][]{{-3, 4, 90}, {2, 4, 90}, {-3, -2, -1}, {-10, -9, -8}};
-        System.out.println("excepted = " + Arrays.deepToString(lis.allLIS()));
+//        System.out.println("excepted = " + Arrays.deepToString(lis.allLIS()));
 //        assertArrayEquals(excepted, lis.allLIS());
-//        assertEquals(4, lis.numOfLIS());
+        assertEquals(4, lis.numOfLIS());
+        lis.allLIS();
     }
 
     @Test
